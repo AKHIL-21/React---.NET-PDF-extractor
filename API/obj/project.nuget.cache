@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "/l7ipm7K6lE=",
+  "success": true,
+  "projectFilePath": "/Users/akhil/Desktop/React-Project/API/API.csproj",
+  "expectedPackageFiles": [
+    "/Users/akhil/.nuget/packages/itext/9.6.0/itext.9.6.0.nupkg.sha512",
+    "/Users/akhil/.nuget/packages/itext.commons/9.6.0/itext.commons.9.6.0.nupkg.sha512",
+    "/Users/akhil/.nuget/packages/itext7/9.6.0/itext7.9.6.0.nupkg.sha512",
+    "/Users/akhil/.nuget/packages/microsoft.aspnetcore.openapi/10.0.7/microsoft.aspnetcore.openapi.10.0.7.nupkg.sha512",
+    "/Users/akhil/.nuget/packages/microsoft.dotnet.platformabstractions/1.1.0/microsoft.dotnet.platformabstractions.1.1.0.nupkg.sha512",
+    "/Users/akhil/.nuget/packages/microsoft.extensions.dependencymodel/10.0.2/microsoft.extensions.dependencymodel.10.0.2.nupkg.sha512",
+    "/Users/akhil/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
