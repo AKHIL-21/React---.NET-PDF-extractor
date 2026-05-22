@@ -45,3 +45,4 @@
 /Users/akhil/Desktop/React-Project/API/obj/Debug/net10.0/API.pdb
 /Users/akhil/Desktop/React-Project/API/obj/Debug/net10.0/API.genruntimeconfig.cache
 /Users/akhil/Desktop/React-Project/API/obj/Debug/net10.0/ref/API.dll
+/Users/akhil/Desktop/React-Project/API/obj/Debug/net10.0/API.sourcelink.json

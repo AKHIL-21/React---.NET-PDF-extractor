@@ -5,7 +5,7 @@ function App() {
   const fileInputRef = useRef(null)
   const [selectedFile, setSelectedFile] = useState(null)
   const [fields, setFields] = useState({})
-  const [status, setStatus] = useState('Choose a fillable PDF to extract its form values.')
+  const [status, setStatus] = useState('Choose a PDF to extract readable fields and document information.')
   const [error, setError] = useState('')
   const [isUploading, setIsUploading] = useState(false)
 
@@ -24,7 +24,7 @@ function App() {
 
     setIsUploading(true)
     setError('')
-    setStatus('Extracting PDF form fields...')
+    setStatus('Analyzing PDF content...')
 
     try {
       const response = await fetch('/api/pdf/extract-fields', {
@@ -42,8 +42,8 @@ function App() {
       setFields(result.fields || {})
       setStatus(
         result.fieldCount > 0
-          ? `Loaded ${result.fieldCount} field${result.fieldCount === 1 ? '' : 's'} from ${result.fileName}.`
-          : `${result.fileName} was readable, but no form-like values were found.`,
+          ? `Loaded ${result.fieldCount} extracted item${result.fieldCount === 1 ? '' : 's'} from ${result.fileName}.`
+          : `${result.fileName} was readable, but no clear fields or values were found.`,
       )
     } catch (uploadError) {
       setFields({})
@@ -69,7 +69,7 @@ function App() {
     setSelectedFile(null)
     setFields({})
     setError('')
-    setStatus('Choose a fillable PDF to extract its form values.')
+    setStatus('Choose a PDF to extract readable fields and document information.')
 
     if (fileInputRef.current) {
       fileInputRef.current.value = ''
@@ -81,10 +81,10 @@ function App() {
       <section className="workspace" aria-labelledby="page-title">
         <div className="intro">
           <p className="eyebrow">React + .NET PDF extractor</p>
-          <h1 id="page-title">Upload a PDF and fill the form automatically.</h1>
+          <h1 id="page-title">Upload a PDF and extract its information.</h1>
           <p>
-            The API reads AcroForm fields from the uploaded PDF, then React maps the extracted
-            values into editable inputs.
+            The API reads embedded PDF fields, analyzes visible document text, and can use a
+            configured model to infer labels and values without a predefined field list.
           </p>
         </div>
 
@@ -93,7 +93,7 @@ function App() {
             <span className="file-drop-icon" aria-hidden="true">+</span>
             <span>
               <strong>{selectedFile ? selectedFile.name : 'Select PDF file'}</strong>
-              <small>Fillable PDF forms work best.</small>
+              <small>Searchable PDFs work best; image scans need OCR.</small>
             </span>
             <input
               ref={fileInputRef}
@@ -119,7 +119,7 @@ function App() {
           <div className="panel-heading">
             <div>
               <p className="eyebrow">Extracted values</p>
-              <h2>Editable form</h2>
+              <h2>Editable extracted data</h2>
             </div>
             <span>{fieldEntries.length} fields</span>
           </div>
@@ -136,7 +136,7 @@ function App() {
           ) : (
             <div className="empty-state">
               <h2>No values loaded yet</h2>
-              <p>Upload a PDF with fillable form fields and the extracted values will appear here.</p>
+              <p>Upload a searchable PDF and the extracted values will appear here.</p>
             </div>
           )}
         </section>
